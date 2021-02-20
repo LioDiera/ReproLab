@@ -30,7 +30,7 @@
     "vmNIcSubnetId": {
       "type": "string",
       "defaultValue": null
-    },
+    }
   },
 
   "variables": {
