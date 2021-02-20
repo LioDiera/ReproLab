@@ -41,15 +41,11 @@
         "description": "The location of DSC modules upon which the script is dependent"
       },
       "defaultValue": null
-    },
-    "OSImage": {
-      "type": "string",
-      "defaultValue": null
     }
   },
 
   "variables": {
-    "windowsServerVersion": "[concat(parameters('OSImage'))]",
+    "windowsServerVersion": "2019-Datacenter",
     "formatDiskModulesURL": "[concat(parameters('dscLocation'),'FormatDisk.ps1.zip')]",
     "formatDiskConfigurationFunction": "FormatDisk.ps1\\FormatDisk"
   },
