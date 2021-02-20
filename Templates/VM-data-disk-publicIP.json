@@ -45,7 +45,7 @@
   },
 
   "variables": {
-    "windowsServerVersion": "2016-Datacenter",
+    "windowsServerVersion": "2019-Datacenter",
     "formatDiskModulesURL": "[concat(parameters('dscLocation'),'FormatDisk.ps1.zip')]",
     "formatDiskConfigurationFunction": "FormatDisk.ps1\\FormatDisk"
   },
