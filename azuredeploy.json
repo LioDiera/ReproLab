@@ -36,8 +36,7 @@
       "defaultValue": "syncnet1<ALIAS>",
       "metadata": {
         "description": "The name of the virtual network to create"
-      },
-      "defaultValue": null
+      }
     },
     "vnetAddressSpace": {
       "type": "string",
@@ -270,7 +269,17 @@
         "description": "The size of the data disk on the synchronization engine VM"
       },
       "defaultValue": "50"
-    }
+    },
+        "OSImage":
+      {
+        "type": "string",
+        "minLength": 1,
+        "allowedValues": [
+            "2016-Datacenter",
+            "2019-Datacenter"
+  
+        ]
+      }
   },
 
   "variables": {
@@ -324,7 +333,8 @@
           "subnet1AddressSpace": { "value": "[parameters('subnet1AddressSpace')]" },
           "subnet2Name": { "value": "[parameters('subnet2Name')]" },
           "subnet2AddressSpace": { "value": "[parameters('subnet2AddressSpace')]" },
-          "networkSecurityGroupName": { "value": "[parameters('networkSecurityGroupName')]" }
+          "networkSecurityGroupName": { "value": "[parameters('networkSecurityGroupName')]" },
+          "OSImage": { "value": "[parameters('OSImage')]" }
         }
       }
     },
@@ -352,7 +362,8 @@
           "vmNIcSubnetId": { "value": "[reference(variables('Network-AzureDNS-DeploymentName')).outputs.Subnet2.value]" },
           "dscLocation": { "value": "[variables('dscLocationURI')]" },
           "domainName": { "value": "[parameters('adDSdomainName')]" },
-          "dcIpAddress": { "value": "[parameters('domainControllerIpAddress')]" }
+          "dcIpAddress": { "value": "[parameters('domainControllerIpAddress')]" },
+          "OSImage": { "value": "[parameters('OSImage')]" }
         }
       }
     },
@@ -405,7 +416,8 @@
           "adminPassword": { "value": "[parameters('adminPassword')]" },
           "vmStorageAccountName": { "value": "[parameters('storageAccountName')]" },
           "vmStorageAccountContainerName": { "value": "[variables('vmVHdContainerName')]" },
-          "vmNIcSubnetId": { "value": "[reference(variables('Network-CustomDNS-DeploymentName')).outputs.Subnet1.value]" }
+          "vmNIcSubnetId": { "value": "[reference(variables('Network-CustomDNS-DeploymentName')).outputs.Subnet1.value]" },
+          "OSImage": { "value": "[parameters('OSImage')]" }
         }
       }
     },
@@ -431,7 +443,8 @@
           "vmStorageAccountContainerName": { "value": "[variables('vmVHdContainerName')]" },
           "vmNIcSubnetId": { "value": "[reference(variables('Network-CustomDNS-DeploymentName')).outputs.Subnet2.value]" },
           "vmDataDiskSize": { "value": "[parameters('adfsServerDataDiskSize')]" },
-          "dscLocation": { "value": "[variables('dscLocationURI')]" }
+          "dscLocation": { "value": "[variables('dscLocationURI')]" },
+          "OSImage": { "value": "[parameters('OSImage')]" }
         }
       }
     },
@@ -478,7 +491,8 @@
           "vmStorageAccountContainerName": { "value": "[variables('vmVHdContainerName')]" },
           "vmNIcSubnetId": { "value": "[reference(variables('Network-CustomDNS-DeploymentName')).outputs.Subnet1.value]" },
           "vmDataDiskSize": { "value": "[parameters('adfsProxyDataDiskSize')]" },
-          "dscLocation": { "value": "[variables('dscLocationURI')]" }
+          "dscLocation": { "value": "[variables('dscLocationURI')]" },
+          "OSImage": { "value": "[parameters('OSImage')]" }
         }
       }
     },
@@ -504,7 +518,8 @@
           "vmStorageAccountContainerName": { "value": "[variables('vmVHdContainerName')]" },
           "vmNIcSubnetId": { "value": "[reference(variables('Network-CustomDNS-DeploymentName')).outputs.Subnet2.value]" },
           "vmDataDiskSize": { "value": "[parameters('dirSyncServerDataDiskSize')]" },
-          "dscLocation": { "value": "[variables('dscLocationURI')]" }
+          "dscLocation": { "value": "[variables('dscLocationURI')]" },
+          "OSImage": { "value": "[parameters('OSImage')]" }
         }
       }
     },
