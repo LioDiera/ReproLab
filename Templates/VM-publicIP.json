@@ -30,11 +30,15 @@
     "vmNIcSubnetId": {
       "type": "string",
       "defaultValue": null
+    },
+    "OSImage": {
+      "type": "string",
+      "defaultValue": null
     }
   },
 
   "variables": {
-    "windowsServerVersion": "2019-Datacenter"
+    "windowsServerVersion": "[concat(parameters('OSImage'))]"
   },
 
   "resources": [
