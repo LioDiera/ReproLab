@@ -7,7 +7,7 @@ This template will deploy a set of Windows Server 2016 VMs that can be used as a
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fliodiera%2fsynclab%2fTestingOSImage%2fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
-<a href="http://armviz.io/#/?load=https%3a%2f%2fraw.githubusercontent.com%2fliodiera%2fsynclab%2fmaster%2fazuredeploy.json" target="_blank">
+<a href="http://armviz.io/#/?load=https%3a%2f%2fraw.githubusercontent.com%2fliodiera%2fsynclab%2fTestingOSImage%2fazuredeploy.json" target="_blank">
     <img src="http://armviz.io/visualizebutton.png"/>
 </a>
 
