@@ -48,15 +48,11 @@
     "dcIpAddress": {
       "type": "string",
       "defaultValue": null
-    },
-    "OSImage": {
-      "type": "string",
-      "defaultValue": null
     }
   },
 
   "variables": {
-    "windowsServerVersion": "[concat(parameters('OSImage'))]",
+    "windowsServerVersion": "2019-Datacenter",
     "adModulesURL": "[concat(parameters('dscLocation'),'MakeDC.ps1.zip')]",
     "adConfigurationFunction": "MakeDC.ps1\\MakeDC"
   },
