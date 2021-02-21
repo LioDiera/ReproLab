@@ -109,7 +109,7 @@
               "sourceAddressPrefix": "[parameters('subnet1AddressSpace')]",
               "destinationAddressPrefix": "*",
               "access": "Allow",
-              "priority": 2020,
+              "priority": 100,
               "direction": "Inbound"
             }
           },
