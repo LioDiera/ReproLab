@@ -29,6 +29,10 @@
     "networkSecurityGroupName": {
       "type": "string",
       "defaultValue": "NetworkSecurityGroup"
+    },
+      "OSImage": {
+      "type": "string",
+      "defaultValue": null
     }
   },
 
