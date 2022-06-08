@@ -1,7 +1,7 @@
 # Create a simple Azure Active Directory single sign-on lab environment
 
 
-This template will deploy a set of Windows Server 2012R2, 2016, or 2019 VMs that can be used as an Azure AD single sign-on lab.
+This template will deploy a set of Windows Server 2012R2, 2016, 2019 or 2022 VMs that can be used as an Azure AD single sign-on lab.
 
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fliodiera%2fsynclab%2fmaster%2fazuredeploy.json" target="_blank">
