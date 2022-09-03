@@ -90,7 +90,8 @@
       "metadata": {
         "description": "The name of the VM hosting AD DS"
       },
-      "defaultValue": "DC01<ALIAS>"
+      "defaultValue": "DC01<ALIAS>",
+      "maxLength": 15
     },
     "domainControllerSize": {
       "type": "string",
