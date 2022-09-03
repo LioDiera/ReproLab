@@ -83,7 +83,7 @@
       "metadata": {
         "description": "The local administrator password on the VMs created"
       },
-      "defaultValue": null
+      "defaultValue": ""
     },
     "domainControllerName": {
       "type": "string",
@@ -99,7 +99,7 @@
         "Standard_DS1_v2",
         "Standard_D2_v2",
         "Standard_DS2_v2",
-        "Standard_DS2_v3",
+        "Standard_D2s_v3",
         "Standard_D3_v2",
         "Standard_DS3_v2",
         "Standard_D4_v2",
@@ -114,7 +114,7 @@
       "metadata": {
         "description": "The size of the VM hosting AD DS"
       },
-      "defaultValue": "Standard_DS2_v3"
+      "defaultValue": "Standard_D2s_v3"
     },
     "domainControllerIpAddress": {
       "type": "string",
@@ -144,7 +144,7 @@
         "Standard_DS1_v2",
         "Standard_D2_v2",
         "Standard_DS2_v2",
-        "Standard_DS2_v3",
+        "Standard_D2s_v3",
         "Standard_D3_v2",
         "Standard_DS3_v2",
         "Standard_D4_v2",
@@ -159,7 +159,7 @@
       "metadata": {
         "description": "The size of the remote desktop VM"
       },
-      "defaultValue": "Standard_DS2_v3"
+      "defaultValue": "Standard_D2s_v3"
     },
     "adfsServerName": {
       "type": "string",
@@ -175,7 +175,7 @@
         "Standard_DS1_v2",
         "Standard_D2_v2",
         "Standard_DS2_v2",
-        "Standard_DS2_v3",
+        "Standard_D2s_v3",
         "Standard_D3_v2",
         "Standard_DS3_v2",
         "Standard_D4_v2",
@@ -190,7 +190,7 @@
       "metadata": {
         "description": "The size of the VM hosting the first server in the ADFS farm"
       },
-      "defaultValue": "Standard_DS2_v3"
+      "defaultValue": "Standard_D2s_v3"
     },
     "adfsServerDataDiskSize": {
       "type": "string",
@@ -213,7 +213,7 @@
         "Standard_DS1_v2",
         "Standard_D2_v2",
         "Standard_DS2_v2",
-        "Standard_DS2_v3",
+        "Standard_D2s_v3",
         "Standard_D3_v2",
         "Standard_DS3_v2",
         "Standard_D4_v2",
@@ -228,7 +228,7 @@
       "metadata": {
         "description": "The size of the ADFS web proxy VM"
       },
-      "defaultValue": "Standard_DS2_v3"
+      "defaultValue": "Standard_D2s_v3"
     },
     "adfsProxyDataDiskSize": {
       "type": "string",
@@ -251,7 +251,7 @@
         "Standard_DS1_v2",
         "Standard_D2_v2",
         "Standard_DS2_v2",
-        "Standard_DS2_v3",
+        "Standard_D2s_v3",
         "Standard_D3_v2",
         "Standard_DS3_v2",
         "Standard_D4_v2",
@@ -266,7 +266,7 @@
       "metadata": {
         "description": "The size of the synchronization engine VM"
       },
-      "defaultValue": "Standard_DS2_v3"
+      "defaultValue": "Standard_D2s_v3"
     },
     "dirSyncServerDataDiskSize": {
       "type": "string",
