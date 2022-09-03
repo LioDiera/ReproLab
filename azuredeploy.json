@@ -33,7 +33,7 @@
     },
     "vnetName": {
       "type": "string",
-      "defaultValue": "syncnet1<ALIAS>",
+      "defaultValue": "syncnet<ALIAS>",
       "metadata": {
         "description": "The name of the virtual network to create"
       }
@@ -90,7 +90,7 @@
       "metadata": {
         "description": "The name of the VM hosting AD DS"
       },
-      "defaultValue": "DC01<ALIAS>",
+      "defaultValue": "DC1<ALIAS>",
       "maxLength": 15
     },
     "domainControllerSize": {
@@ -136,7 +136,7 @@
       "metadata": {
         "description": "The name of the remote desktop VM"
       },
-      "defaultValue": "Gateway<ALIAS>",
+      "defaultValue": "GW<ALIAS>",
       "maxLength": 15
     },
     "remoteDesktopGatewaySize": {
@@ -168,7 +168,7 @@
       "metadata": {
         "description": "The name of the VM hosting the first server in the ADFS farm"
       },
-      "defaultValue": "ADFS01<ALIAS>",
+      "defaultValue": "ADFS1<ALIAS>",
       "maxLength": 15
     },
     "adfsServerSize": {
@@ -207,7 +207,7 @@
       "metadata": {
         "description": "The name of the ADFS web proxy VM"
       },
-      "defaultValue": "WAP01<ALIAS>",
+      "defaultValue": "WAP1<ALIAS>",
       "maxLength": 15
     },
     "adfsProxySize": {
@@ -246,7 +246,7 @@
       "metadata": {
         "description": "The name of the synchronization engine VM (Azure AD Connect will be run on this VM)"
       },
-      "defaultValue": "SYNC01<ALIAS>",
+      "defaultValue": "SYNC1<ALIAS>",
       "maxLength": 15
     },
     "dirSyncServerSize": {
