@@ -163,10 +163,10 @@
       },
       "defaultValue": "Standard_D2s_v3"
     },
-        "remoteDesktopGatewayIpAddress": {
+      "remoteDesktopGatewayIpAddress": {
       "type": "string",
       "metadata": {
-        "description": "The IP address of the VM hosting AD DS"
+        "description": "The IP address of the GW VM"
       },
       "defaultValue": "10.0.0.5"
     },
@@ -220,7 +220,7 @@
     "adfsProxyIpAddress": {
       "type": "string",
       "metadata": {
-        "description": "The IP address of the VM hosting AD DS"
+        "description": "The IP address of the WAP VM"
       },
       "defaultValue": "10.0.0.4"
     },
