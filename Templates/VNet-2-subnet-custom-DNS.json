@@ -161,7 +161,7 @@
       "properties": {
         "securityRules": [
           {
-            "name": "inbound-allow-443-to-wap",
+            "name": "inbound allow 443 to WAP",
             "properties": {
               "protocol": "Tcp",
               "sourcePortRange": "*",
