@@ -56,7 +56,7 @@
       "location": "[resourceGroup().location]",
       "dependsOn": [
         "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]",
-        "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('networkSecurityGroupName'),'ext') )]"
+        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'),'ext')]"
       ],
       "properties": {
         "addressSpace": {
