@@ -195,7 +195,7 @@
             "sourcePortRange": "*",
             "destinationPortRange": "49443",
             "sourceAddressPrefix": "*",
-            "destinationAddressPrefix": "10.0.0.8",
+            "destinationAddressPrefix": "10.0.0.4",
             "access": "Allow",
             "priority": 106,
             "direction": "Inbound",
