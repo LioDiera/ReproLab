@@ -37,6 +37,10 @@
     "remoteDesktopGatewayIpAddress": {
       "type": "string",
       "defaultValue": "10.0.0.5"
+    },
+          "OSImage": {
+      "type": "string",
+      "defaultValue": null
     }
   },
 
