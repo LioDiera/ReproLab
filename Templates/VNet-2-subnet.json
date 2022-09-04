@@ -30,17 +30,13 @@
       "type": "string",
       "defaultValue": "NetworkSecurityGroup"
     },
-        "adfsProxyIpAddress": {
+    "adfsProxyIpAddress": {
       "type": "string",
       "defaultValue": "10.0.0.4"
     },
     "remoteDesktopGatewayIpAddress": {
       "type": "string",
       "defaultValue": "10.0.0.5"
-    },
-      "OSImage": {
-      "type": "string",
-      "defaultValue": null
     }
   },
 
@@ -55,7 +51,8 @@
       "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
+        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]",
+        "[resourceId('Microsoft.Network/networkSecurityGroups', concat(parameters('networkSecurityGroupName'),'ext') )]"
       ],
       "properties": {
         "addressSpace": {
