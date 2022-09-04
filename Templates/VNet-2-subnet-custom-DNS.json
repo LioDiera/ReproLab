@@ -57,8 +57,7 @@
       "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]",
-        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'),'ext')]"
+        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
       ],
       "properties": {
         "addressSpace": {
@@ -91,6 +90,69 @@
         ]
       }
 
+    },
+    {
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[concat(parameters('networkSecurityGroupName'),'ext') ]",
+      "apiVersion": "[variables('apiVersion')]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "securityRules": [
+          {
+            "name": "inbound allow 443 to WAP",
+            "properties": {
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "443",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "[parameters('adfsProxyIpAddress')]",
+              "access": "Allow",
+              "priority": 105,
+              "direction": "Inbound"
+            }
+          },
+          {
+            "name": "inbound allow 3389 to GW",
+            "properties": {
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "3389",
+              "sourceAddressPrefix": "10.0.0.1",
+              "destinationAddressPrefix": "[parameters('remoteDesktopGatewayIpAddress')]",
+              "access": "Allow",
+              "priority": 100,
+              "direction": "Inbound"
+            }
+          },
+          {
+            "name": "Port_49443",
+            "properties": {
+            "description": "Allow CBA for ADFS",
+            "protocol": "TCP",
+            "sourcePortRange": "*",
+            "destinationPortRange": "49443",
+            "sourceAddressPrefix": "*",
+            "destinationAddressPrefix": "[parameters('adfsProxyIpAddress')]",
+            "access": "Allow",
+            "priority": 106,
+            "direction": "Inbound"
+            }
+          },
+          {
+            "name": "[concat('inbound-deny-',toLower(parameters('subnet1Name')),'-all')]",
+            "properties": {
+              "protocol": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "*",
+              "sourceAddressPrefix": "[parameters('subnet1AddressSpace')]",
+              "destinationAddressPrefix": "*",
+              "access": "Deny",
+              "priority": 2900,
+              "direction": "Inbound"
+            }
+          }
+        ]
+      }
     },
     {
       "type": "Microsoft.Network/networkSecurityGroups",
@@ -136,69 +198,6 @@
               "access": "Allow",
               "priority": 2030,
               "direction": "Inbound"
-            }
-          },
-          {
-            "name": "[concat('inbound-deny-',toLower(parameters('subnet1Name')),'-all')]",
-            "properties": {
-              "protocol": "*",
-              "sourcePortRange": "*",
-              "destinationPortRange": "*",
-              "sourceAddressPrefix": "[parameters('subnet1AddressSpace')]",
-              "destinationAddressPrefix": "*",
-              "access": "Deny",
-              "priority": 2900,
-              "direction": "Inbound"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[concat(parameters('networkSecurityGroupName'),'ext') ]",
-      "apiVersion": "[variables('apiVersion')]",
-      "location": "[resourceGroup().location]",
-      "properties": {
-        "securityRules": [
-          {
-            "name": "inbound allow 443 to WAP",
-            "properties": {
-              "protocol": "Tcp",
-              "sourcePortRange": "*",
-              "destinationPortRange": "443",
-              "sourceAddressPrefix": "*",
-              "destinationAddressPrefix": "[parameters('adfsProxyIpAddress')]",
-              "access": "Allow",
-              "priority": 105,
-              "direction": "Inbound"
-            }
-          },
-          {
-            "name": "inbound allow 3389 to GW",
-            "properties": {
-              "protocol": "Tcp",
-              "sourcePortRange": "*",
-              "destinationPortRange": "3389",
-              "sourceAddressPrefix": "10.0.0.1",
-              "destinationAddressPrefix": "[parameters('remoteDesktopGatewayIpAddress')]",
-              "access": "Allow",
-              "priority": 100,
-              "direction": "Inbound"
-            }
-          },
-          {
-            "name": "Port_49443",
-            "properties": {
-            "description": "Allow CBA for ADFS",
-            "protocol": "TCP",
-            "sourcePortRange": "*",
-            "destinationPortRange": "49443",
-            "sourceAddressPrefix": "*",
-            "destinationAddressPrefix": "10.0.0.4",
-            "access": "Allow",
-            "priority": 106,
-            "direction": "Inbound",
             }
           },
           {
