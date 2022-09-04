@@ -30,6 +30,10 @@
       "type": "string",
       "defaultValue": "NetworkSecurityGroup"
     },
+        "ExternalnetworkSecurityGroupName": {
+      "type": "string",
+      "defaultValue": "NetworkSecurityGroup"
+    },
     "adfsProxyIpAddress": {
       "type": "string",
       "defaultValue": "10.0.0.4"
@@ -37,6 +41,10 @@
     "remoteDesktopGatewayIpAddress": {
       "type": "string",
       "defaultValue": "10.0.0.5"
+    },
+        "yourPublicIpAddress": {
+      "type": "string",
+      "defaultValue": "10.0.0.1"
     },
     "dnsServers": {
       "type": "array",
@@ -74,7 +82,7 @@
             "properties": {
               "addressPrefix": "[parameters('subnet1AddressSpace')]",
               "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'),'ext')]"
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('ExternalnetworkSecurityGroupName'))]"
             }
            }
           },
@@ -93,7 +101,7 @@
     },
     {
       "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[concat(parameters('networkSecurityGroupName'),'ext') ]",
+      "name": "[parameters('ExternalnetworkSecurityGroupName')]",
       "apiVersion": "[variables('apiVersion')]",
       "location": "[resourceGroup().location]",
       "properties": {
@@ -117,7 +125,7 @@
               "protocol": "Tcp",
               "sourcePortRange": "*",
               "destinationPortRange": "3389",
-              "sourceAddressPrefix": "10.0.0.1",
+              "sourceAddressPrefix": "[parameters('yourPublicIpAddress')]",
               "destinationAddressPrefix": "[parameters('remoteDesktopGatewayIpAddress')]",
               "access": "Allow",
               "priority": 100,
