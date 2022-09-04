@@ -163,6 +163,13 @@
       },
       "defaultValue": "Standard_D2s_v3"
     },
+        "remoteDesktopGatewayIpAddress": {
+      "type": "string",
+      "metadata": {
+        "description": "The IP address of the VM hosting AD DS"
+      },
+      "defaultValue": "10.0.0.5"
+    },
     "adfsServerName": {
       "type": "string",
       "metadata": {
@@ -209,6 +216,13 @@
       },
       "defaultValue": "WAP1<ALIAS>",
       "maxLength": 15
+    },
+    "adfsProxyIpAddress": {
+      "type": "string",
+      "metadata": {
+        "description": "The IP address of the VM hosting AD DS"
+      },
+      "defaultValue": "10.0.0.4"
     },
     "adfsProxySize": {
       "type": "string",
@@ -433,6 +447,7 @@
           "vmStorageAccountName": { "value": "[parameters('storageAccountName')]" },
           "vmStorageAccountContainerName": { "value": "[variables('vmVHdContainerName')]" },
           "vmNIcSubnetId": { "value": "[reference(variables('Network-CustomDNS-DeploymentName')).outputs.Subnet1.value]" },
+          "dcIpAddress": { "value": "[parameters('remoteDesktopGatewayIpAddress')]" },
           "OSImage": { "value": "[parameters('OSImage')]" }
         }
       }
@@ -508,6 +523,7 @@
           "vmNIcSubnetId": { "value": "[reference(variables('Network-CustomDNS-DeploymentName')).outputs.Subnet1.value]" },
           "vmDataDiskSize": { "value": "[parameters('adfsProxyDataDiskSize')]" },
           "dscLocation": { "value": "[variables('dscLocationURI')]" },
+          "dcIpAddress": { "value": "[parameters('adfsProxyIpAddress')]" },
           "OSImage": { "value": "[parameters('OSImage')]" }
         }
       }

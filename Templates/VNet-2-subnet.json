@@ -87,7 +87,7 @@
             "properties": {
               "protocol": "Tcp",
               "sourcePortRange": "*",
-              "destinationPortRange": "433",
+              "destinationPortRange": "443",
               "sourceAddressPrefix": "[parameters('subnet1AddressSpace')]",
               "destinationAddressPrefix": "*",
               "access": "Allow",
