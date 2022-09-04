@@ -71,6 +71,17 @@
       "type": "string",
       "defaultValue": "SyncLabNSG<ALIAS>"
     },
+    "externalnetworkSecurityGroupName": {
+      "type": "string",
+      "defaultValue": "ExtSyncLabNSG<ALIAS>"
+    },
+        "yourPublicIpAddress": {
+      "type": "string",
+            "metadata": {
+        "description": "This IP address is added to the 3389 inbound rule for the external NSG"
+      },
+      "defaultValue": "ExtSyncLabNSG<ALIAS>"
+    },
     "adminUsername": {
       "type": "string",
       "metadata": {
@@ -364,6 +375,8 @@
           "subnet2Name": { "value": "[parameters('subnet2Name')]" },
           "subnet2AddressSpace": { "value": "[parameters('subnet2AddressSpace')]" },
           "networkSecurityGroupName": { "value": "[parameters('networkSecurityGroupName')]" },
+          "ExternalnetworkSecurityGroupName": { "value": "[parameters('ExternalnetworkSecurityGroupName')]" },
+          "yourPublicIpAddress":{"value": "[parameters('yourPublicIpAddress')]" },
           "OSImage": { "value": "[parameters('OSImage')]" }
         }
       }
@@ -418,6 +431,7 @@
           "subnet2Name": { "value": "[parameters('subnet2Name')]" },
           "subnet2AddressSpace": { "value": "[parameters('subnet2AddressSpace')]" },
           "networkSecurityGroupName": { "value": "[parameters('networkSecurityGroupName')]" },
+          "ExternalnetworkSecurityGroupName": { "value": "[parameters('ExternalnetworkSecurityGroupName')]" },
           "dnsServers": {
             "value": [
               "[parameters('domainControllerIpAddress')]"
