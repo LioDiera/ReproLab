@@ -80,7 +80,7 @@
             "metadata": {
         "description": "This IP address is added to the 3389 inbound rule for the external NSG"
       },
-      "defaultValue": "ExtSyncLabNSG<ALIAS>"
+      "defaultValue": ""
     },
     "adminUsername": {
       "type": "string",
@@ -461,7 +461,7 @@
           "vmStorageAccountName": { "value": "[parameters('storageAccountName')]" },
           "vmStorageAccountContainerName": { "value": "[variables('vmVHdContainerName')]" },
           "vmNIcSubnetId": { "value": "[reference(variables('Network-CustomDNS-DeploymentName')).outputs.Subnet1.value]" },
-          "dcIpAddress": { "value": "[parameters('remoteDesktopGatewayIpAddress')]" },
+          "remoteDesktopGatewayIpAddress": { "value": "[parameters('remoteDesktopGatewayIpAddress')]" },
           "OSImage": { "value": "[parameters('OSImage')]" }
         }
       }
@@ -537,7 +537,7 @@
           "vmNIcSubnetId": { "value": "[reference(variables('Network-CustomDNS-DeploymentName')).outputs.Subnet1.value]" },
           "vmDataDiskSize": { "value": "[parameters('adfsProxyDataDiskSize')]" },
           "dscLocation": { "value": "[variables('dscLocationURI')]" },
-          "dcIpAddress": { "value": "[parameters('adfsProxyIpAddress')]" },
+          "adfsProxyIpAddress": { "value": "[parameters('adfsProxyIpAddress')]" },
           "OSImage": { "value": "[parameters('OSImage')]" }
         }
       }

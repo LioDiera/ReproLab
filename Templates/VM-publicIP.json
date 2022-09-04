@@ -1,4 +1,5 @@
 {
+  //This is the template that is used to create the remote desktop VM. 
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
 
@@ -34,6 +35,12 @@
     "OSImage": {
       "type": "string",
       "defaultValue": null
+    },
+    "remoteDesktopGatewayIpAddress": {
+      "type": "string",
+      "metadata": {
+        "description": "The IP address of the GW VM"
+      }
     }
   },
 
@@ -101,7 +108,8 @@
           {
             "name": "ipconfig",
             "properties": {
-              "privateIPAllocationMethod": "Dynamic",
+              "privateIPAllocationMethod": "Static",
+              "privateIPAddress": "[parameters('remoteDesktopGatewayIpAddress')]",
               "publicIPAddress": {
                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('vmName'),'-IP'))]"
               },
