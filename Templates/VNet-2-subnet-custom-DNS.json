@@ -42,7 +42,7 @@
       "type": "string",
       "defaultValue": "10.0.0.5"
     },
-        "yourPublicIpAddress": {
+    "yourPublicIpAddress": {
       "type": "string",
       "defaultValue": "10.0.0.1"
     },
