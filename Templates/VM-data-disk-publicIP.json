@@ -1,4 +1,5 @@
 {
+  //This template is used to create the WAP server. 
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
 
@@ -41,6 +42,13 @@
         "description": "The location of DSC modules upon which the script is dependent"
       },
       "defaultValue": null
+    },
+    "adfsProxyIpAddress": {
+      "type": "string",
+      "metadata": {
+        "description": "The IP address of the WAP VM"
+      },
+      "defaultValue": "10.0.0.4"
     },
     "OSImage": {
       "type": "string",
@@ -147,7 +155,8 @@
           {
             "name": "ipconfig",
             "properties": {
-              "privateIPAllocationMethod": "Dynamic",
+              "privateIPAllocationMethod": "Static",
+              "privateIPAddress": "[parameters('adfsProxyIpAddress')]",
               "publicIPAddress": {
                 "id": "[resourceId('Microsoft.Network/publicIPAddresses', concat(parameters('vmName'),'-IP'))]"
               },
