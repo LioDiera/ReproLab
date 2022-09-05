@@ -433,6 +433,7 @@
           "subnet2AddressSpace": { "value": "[parameters('subnet2AddressSpace')]" },
           "networkSecurityGroupName": { "value": "[parameters('networkSecurityGroupName')]" },
           "ExternalnetworkSecurityGroupName": { "value": "[parameters('ExternalnetworkSecurityGroupName')]" },
+          "yourPublicIpAddress": {"value": "[parameters('yourPublicIpAddress')]"},
           "dnsServers": {
             "value": [
               "[parameters('domainControllerIpAddress')]"
