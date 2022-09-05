@@ -19,14 +19,14 @@ The virtual network has two subnets:  an external-facing subnet an an internal s
 
 This template deploys the following VMs (in the specified subnet):
 <ol>
-<li>Remote desktop jump server (external)</li>
+<li>Remote desktop jump server. From this server you will be able to remote into the rest of the VMs (external)</li>
 <li>Domain controller (internal)</li>
 <li>ADFS farm server (internal)</li>
 <li>ADFS proxy server (external)</li>
 <li>Synchronization server (internal)</li>
 </ol>
 
-With the exception of the domain controller, the template only deploys the operating system to the VMs.
+With the exception of the domain controller, the template only deploys the operating system to the VMs and joins them to the domain.
 
 ## Active Directory Domain Services
 
