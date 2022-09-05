@@ -133,6 +133,19 @@
             }
           },
           {
+            "name": "allow 3389 from GW to WAP",
+            "properties": {
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "3389",
+              "sourceAddressPrefix": "[parameters('remoteDesktopGatewayIpAddress')]",
+              "destinationAddressPrefix": "[parameters('adfsProxyIpAddress')]",
+              "access": "Allow",
+              "priority": 101,
+              "direction": "Inbound"
+            }
+          },
+          {
             "name": "Port_49443",
             "properties": {
             "description": "Allow CBA for ADFS",
