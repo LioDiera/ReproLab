@@ -133,19 +133,6 @@
             }
           },
           {
-            "name": "allow 3389 from GW to WAP",
-            "properties": {
-              "protocol": "Tcp",
-              "sourcePortRange": "*",
-              "destinationPortRange": "3389",
-              "sourceAddressPrefix": "[parameters('remoteDesktopGatewayIpAddress')]",
-              "destinationAddressPrefix": "[parameters('adfsProxyIpAddress')]",
-              "access": "Allow",
-              "priority": 101,
-              "direction": "Inbound"
-            }
-          },
-          {
             "name": "Port_49443",
             "properties": {
             "description": "Allow CBA for ADFS",
@@ -157,19 +144,6 @@
             "access": "Allow",
             "priority": 106,
             "direction": "Inbound"
-            }
-          },
-          {
-            "name": "[concat('inbound-deny-',toLower(parameters('subnet1Name')),'-all')]",
-            "properties": {
-              "protocol": "*",
-              "sourcePortRange": "*",
-              "destinationPortRange": "*",
-              "sourceAddressPrefix": "[parameters('subnet1AddressSpace')]",
-              "destinationAddressPrefix": "*",
-              "access": "Deny",
-              "priority": 2900,
-              "direction": "Inbound"
             }
           }
         ]
@@ -218,19 +192,6 @@
               "destinationAddressPrefix": "*",
               "access": "Allow",
               "priority": 2030,
-              "direction": "Inbound"
-            }
-          },
-          {
-            "name": "[concat('inbound-deny-',toLower(parameters('subnet1Name')),'-all')]",
-            "properties": {
-              "protocol": "*",
-              "sourcePortRange": "*",
-              "destinationPortRange": "*",
-              "sourceAddressPrefix": "[parameters('subnet1AddressSpace')]",
-              "destinationAddressPrefix": "*",
-              "access": "Deny",
-              "priority": 2900,
               "direction": "Inbound"
             }
           }
