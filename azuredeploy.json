@@ -417,7 +417,6 @@
         }
       }
     },
-    ,
     {
       "name": "[variables('DirSync-DeploymentName')]",
       "type": "Microsoft.Resources/deployments",
