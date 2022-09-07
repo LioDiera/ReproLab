@@ -34,10 +34,6 @@
       "type": "string",
       "defaultValue": "NetworkSecurityGroup"
     },
-    "adfsProxyIpAddress": {
-      "type": "string",
-      "defaultValue": "10.0.0.4"
-    },
     "remoteDesktopGatewayIpAddress": {
       "type": "string",
       "defaultValue": "10.0.0.5"
@@ -108,7 +104,7 @@
               "sourcePortRange": "*",
               "destinationPortRange": "443",
               "sourceAddressPrefix": "*",
-              "destinationAddressPrefix": "[parameters('adfsProxyIpAddress')]",
+              "destinationAddressPrefix": "[parameters('remoteDesktopGatewayIpAddress')]",
               "access": "Allow",
               "priority": 105,
               "direction": "Inbound"
@@ -135,7 +131,7 @@
             "sourcePortRange": "*",
             "destinationPortRange": "49443",
             "sourceAddressPrefix": "*",
-            "destinationAddressPrefix": "[parameters('adfsProxyIpAddress')]",
+            "destinationAddressPrefix": "[parameters('remoteDesktopGatewayIpAddress')]",
             "access": "Allow",
             "priority": 106,
             "direction": "Inbound"

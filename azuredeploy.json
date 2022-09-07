@@ -182,39 +182,6 @@
       },
       "defaultValue": "50"
     },
-    "adfsProxyName": {
-      "type": "string",
-      "metadata": {
-        "description": "The name of the ADFS web proxy VM"
-      },
-      "defaultValue": "WAP1<ALIAS>",
-      "maxLength": 15
-    },
-    "adfsProxyIpAddress": {
-      "type": "string",
-      "metadata": {
-        "description": "The IP address of the WAP VM"
-      },
-      "defaultValue": "10.0.0.4"
-    },
-    "adfsProxySize": {
-      "type": "string",
-      "allowedValues": [
-        "Standard_D2s_v3",
-        "Standard_B2s"
-      ],
-      "metadata": {
-        "description": "The size of the ADFS web proxy VM"
-      },
-      "defaultValue": "Standard_B2s"
-    },
-    "adfsProxyDataDiskSize": {
-      "type": "string",
-      "metadata": {
-        "description": "The size of the data disk on the ADFS web proxy VM"
-      },
-      "defaultValue": "50"
-    },
     "dirSyncServerName": {
       "type": "string",
       "metadata": {
@@ -271,7 +238,6 @@
     "RemoteDesktop-DeploymentName": "[concat(variables('deploymentName'),'-RemoteDesktop')]",
     "ADFS-Server-DeploymentName": "[concat(variables('deploymentName'),'-ADFS')]",
     "ADFS-Server-DomainJoin-DeploymentName": "[concat(variables('deploymentName'),'-ADFS-DomainJoin')]",
-    "ADFS-Proxy-DeploymentName": "[concat(variables('deploymentName'),'-ADFS-Proxy')]",
     "DirSync-DeploymentName": "[concat(variables('deploymentName'),'-DirSync')]",
     "DirSync-DomainJoin-DeploymentName": "[concat(variables('deploymentName'),'-DirSync-DomainJoin')]"
   },
@@ -451,34 +417,7 @@
         }
       }
     },
-    {
-      "name": "[variables('ADFS-Proxy-DeploymentName')]",
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2016-02-01",
-      "dependsOn": [
-        "[variables('Network-CustomDNS-DeploymentName')]"
-      ],
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "uri": "[concat(variables('templateLocationURI'), 'VM-data-disk-publicIP.json')]",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-          "vmName": { "value": "[parameters('adfsProxyName')]" },
-          "vmSize": { "value": "[parameters('adfsProxySize')]" },
-          "adminUsername": { "value": "[parameters('adminUsername')]" },
-          "adminPassword": { "value": "[parameters('adminPassword')]" },
-          "vmStorageAccountName": { "value": "[parameters('storageAccountName')]" },
-          "vmStorageAccountContainerName": { "value": "[variables('vmVHdContainerName')]" },
-          "vmNIcSubnetId": { "value": "[reference(variables('Network-CustomDNS-DeploymentName')).outputs.Subnet1.value]" },
-          "vmDataDiskSize": { "value": "[parameters('adfsProxyDataDiskSize')]" },
-          "dscLocation": { "value": "[variables('dscLocationURI')]" },
-          "adfsProxyIpAddress": { "value": "[parameters('adfsProxyIpAddress')]" },
-          "OSImage": { "value": "[parameters('OSImage')]" }
-        }
-      }
-    },
+    ,
     {
       "name": "[variables('DirSync-DeploymentName')]",
       "type": "Microsoft.Resources/deployments",
