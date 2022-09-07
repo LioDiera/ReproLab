@@ -13,16 +13,15 @@ This template will deploy a set of Windows Server 2012R2, 2016, 2019 or 2022 VMs
 
 ## Networking
 
-The virtual network has two subnets:  an external-facing subnet an an internal subnet.  A network security group on the internal subnet prevents all inbound traffic and only allows 53, 443, and 3389 from the external subnet. A network security group on the external subnet restricts 3389 to the Gateway VM from the public IP address specified in the template. 
+The virtual network has two subnets:  an external-facing subnet an an internal subnet.  A network security group on the internal subnet prevents all inbound traffic and only allows ports 53, 443, and 3389 from the external subnet. A network security group on the external subnet restricts ports 3389, 443, and 49443 to the Gateway VM from the public IP address specified in the template. 
 
 ## VMs
 
 This template deploys the following VMs in the specified subnet. You will be able to remote into all VMs from the remote desktop jump server.
 <ol>
-<li>Remote desktop jump server(external)</li>
+<li>Remote desktop jump server/ADFS Proxy server (external)</li>
 <li>Domain controller (internal)</li>
 <li>ADFS farm server (internal)</li>
-<li>ADFS proxy server (external)</li>
 <li>Synchronization server (internal)</li>
 </ol>
 
