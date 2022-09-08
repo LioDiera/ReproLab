@@ -15,7 +15,8 @@
       "defaultValue": "<ALIAS>synclabstorage",
       "metadata": {
         "description": "The name of the Storage Account to create. Lowercase characters only"
-      }
+      },
+      "maxLength": 24
     },
     "storageAccountType": {
       "type": "string",
