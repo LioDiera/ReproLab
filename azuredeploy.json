@@ -93,6 +93,7 @@
     },
     "adminPassword": {
       "type": "securestring",
+      "minLength": 1,
       "metadata": {
         "description": "The local administrator password on the VMs created"
       },
