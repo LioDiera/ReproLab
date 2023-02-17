@@ -99,7 +99,7 @@
       "properties": {
         "securityRules": [
           {
-            "name": "inbound allow 443 to WAP",
+            "name": "inbound-allow-443-to-WAP",
             "properties": {
               "protocol": "Tcp",
               "sourcePortRange": "*",
@@ -112,7 +112,7 @@
             }
           },
           {
-            "name": "inbound allow 3389 to GW",
+            "name": "inbound-allow-3389-to-GW",
             "properties": {
               "protocol": "Tcp",
               "sourcePortRange": "*",
