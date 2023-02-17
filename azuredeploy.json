@@ -70,11 +70,11 @@
     },
     "networkSecurityGroupName": {
       "type": "string",
-      "defaultValue": "SyncLabNSG<ALIAS>"
+      "defaultValue": "Int-SyncLabNSG<ALIAS>"
     },
     "externalnetworkSecurityGroupName": {
       "type": "string",
-      "defaultValue": "ExtSyncLabNSG<ALIAS>"
+      "defaultValue": "Ext-SyncLabNSG<ALIAS>"
     },
         "yourPublicIpAddress": {
       "type": "string",
