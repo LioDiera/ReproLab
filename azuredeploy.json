@@ -111,12 +111,12 @@
       "type": "string",
       "allowedValues": [
         "Standard_D2s_v3",
-        "Standard_B2s"
+        "Standard_DS1_v2"
       ],
       "metadata": {
         "description": "The size of the VM hosting AD DS"
       },
-      "defaultValue": "Standard_B2s"
+      "defaultValue": "Standard_DS1_v2"
     },
     "domainControllerIpAddress": {
       "type": "string",
@@ -144,12 +144,12 @@
       "type": "string",
       "allowedValues": [
         "Standard_D2s_v3",
-        "Standard_B2s"
+        "Standard_DS1_v2"
       ],
       "metadata": {
         "description": "The size of the remote desktop VM"
       },
-      "defaultValue": "Standard_B2s"
+      "defaultValue": "Standard_DS1_v2"
     },
       "remoteDesktopGatewayIpAddress": {
       "type": "string",
@@ -170,12 +170,12 @@
       "type": "string",
       "allowedValues": [
         "Standard_D2s_v3",
-        "Standard_B2s"
+        "Standard_DS1_v2"
       ],
       "metadata": {
         "description": "The size of the VM hosting the first server in the ADFS farm"
       },
-      "defaultValue": "Standard_B2s"
+      "defaultValue": "Standard_DS1_v2"
     },
     "adfsServerDataDiskSize": {
       "type": "string",
@@ -196,12 +196,12 @@
       "type": "string",
       "allowedValues": [
         "Standard_D2s_v3",
-        "Standard_B2s"
+        "Standard_DS1_v2"
       ],
       "metadata": {
         "description": "The size of the synchronization engine VM"
       },
-      "defaultValue": "Standard_B2s"
+      "defaultValue": "Standard_DS1_v2"
     },
     "dirSyncServerDataDiskSize": {
       "type": "string",
