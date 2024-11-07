@@ -219,7 +219,8 @@
             "2012-Datacenter",
             "2016-Datacenter",
             "2019-Datacenter",
-            "2022-Datacenter"
+            "2022-Datacenter",
+            "2025-Datacenter"
         ],
               "metadata": {
         "description": "The Windows OS version"
