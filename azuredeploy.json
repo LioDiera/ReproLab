@@ -107,7 +107,7 @@
       "defaultValue": "DC1<ALIAS>",
       "maxLength": 15
     },
-    "domainControllerSize": {
+    "vmSize": {
       "type": "string",
       "allowedValues": [
         "Standard_D2s_v3",
@@ -115,7 +115,7 @@
         "Standard_B2s"
       ],
       "metadata": {
-        "description": "The size of the VM hosting AD DS"
+        "description": "The size of all VMs deployed in the lab"
       },
       "defaultValue": "Standard_DS1_v2"
     },
@@ -141,18 +141,6 @@
       "defaultValue": "GW<ALIAS>",
       "maxLength": 15
     },
-    "remoteDesktopGatewaySize": {
-      "type": "string",
-      "allowedValues": [
-        "Standard_D2s_v3",
-        "Standard_DS1_v2",
-        "Standard_B2s"
-      ],
-      "metadata": {
-        "description": "The size of the remote desktop VM"
-      },
-      "defaultValue": "Standard_DS1_v2"
-    },
       "remoteDesktopGatewayIpAddress": {
       "type": "string",
       "metadata": {
@@ -168,18 +156,6 @@
       "defaultValue": "ADFS1<ALIAS>",
       "maxLength": 15
     },
-    "adfsServerSize": {
-      "type": "string",
-      "allowedValues": [
-        "Standard_D2s_v3",
-        "Standard_DS1_v2",
-        "Standard_B2s"
-      ],
-      "metadata": {
-        "description": "The size of the VM hosting the first server in the ADFS farm"
-      },
-      "defaultValue": "Standard_DS1_v2"
-    },
     "adfsServerDataDiskSize": {
       "type": "string",
       "metadata": {
@@ -194,18 +170,6 @@
       },
       "defaultValue": "SYNC1<ALIAS>",
       "maxLength": 15
-    },
-    "dirSyncServerSize": {
-      "type": "string",
-      "allowedValues": [
-        "Standard_D2s_v3",
-        "Standard_DS1_v2",
-        "Standard_B2s"
-      ],
-      "metadata": {
-        "description": "The size of the synchronization engine VM"
-      },
-      "defaultValue": "Standard_DS1_v2"
     },
     "dirSyncServerDataDiskSize": {
       "type": "string",
@@ -306,7 +270,7 @@
         },
         "parameters": {
           "vmName": { "value": "[parameters('domainControllerName')]" },
-          "vmSize": { "value": "[parameters('domainControllerSize')]" },
+          "vmSize": { "value": "[parameters('vmSize')]" },
           "adminUsername": { "value": "[parameters('adminUsername')]" },
           "adminPassword": { "value": "[parameters('adminPassword')]" },
           "vmStorageAccountName": { "value": "[parameters('storageAccountName')]" },
@@ -365,7 +329,7 @@
         },
         "parameters": {
           "vmName": { "value": "[parameters('remoteDesktopGatewayName')]" },
-          "vmSize": { "value": "[parameters('remoteDesktopGatewaySize')]" },
+          "vmSize": { "value": "[parameters('vmSize')]" },
           "adminUsername": { "value": "[parameters('adminUsername')]" },
           "adminPassword": { "value": "[parameters('adminPassword')]" },
           "vmStorageAccountName": { "value": "[parameters('storageAccountName')]" },
@@ -391,7 +355,7 @@
         },
         "parameters": {
           "vmName": { "value": "[parameters('adfsServerName')]" },
-          "vmSize": { "value": "[parameters('adfsServerSize')]" },
+          "vmSize": { "value": "[parameters('vmSize')]" },
           "adminUsername": { "value": "[parameters('adminUsername')]" },
           "adminPassword": { "value": "[parameters('adminPassword')]" },
           "vmStorageAccountName": { "value": "[parameters('storageAccountName')]" },
@@ -439,7 +403,7 @@
         },
         "parameters": {
           "vmName": { "value": "[parameters('dirSyncServerName')]" },
-          "vmSize": { "value": "[parameters('dirSyncServerSize')]" },
+          "vmSize": { "value": "[parameters('vmSize')]" },
           "adminUsername": { "value": "[parameters('adminUsername')]" },
           "adminPassword": { "value": "[parameters('adminPassword')]" },
           "vmStorageAccountName": { "value": "[parameters('storageAccountName')]" },
