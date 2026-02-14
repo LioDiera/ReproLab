@@ -141,7 +141,7 @@
       "defaultValue": "GW<ALIAS>",
       "maxLength": 15
     },
-      "remoteDesktopGatewayIpAddress": {
+    "remoteDesktopGatewayIpAddress": {
       "type": "string",
       "metadata": {
         "description": "The IP address of the GW VM"
